@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<body>
+  <!--1. React란?
+        Facebook에서 만든 자바스크립트 라이브러리이며 UI컴포넌트들을 만들 수 있는
+        툴이다.    
+        [1] UI를 위한 JavaScript 라이브러리
+        [2] Single Page App을 구현하기 위해 사용되어짐  
+        [3] 재사용성이 가능한 UI Component를 사용함
+
+    2. React는 어떻게 동작하는가
+      - react는 메모리에 가상의 DOM을 생성한다. 
+        브라우저의 돔을 직접 조작하는 대신, 가상의 돔을 메모리에 생성하며,
+        브라우저 돔을 변경하기 전에 메모리상의 가상돔에 필요한 조작을 
+        할 수 있다.
+      - React only changes what needs to be changed
+        react는 변경이 필요한 것을 찾아내어 필요한 부분만 변경함
+
+-->
+<div id="myroot"></div>
+
+<script type="text/babel">
+    class Hello extends React.Component{
+        render(){
+            return (<h1 style={{color:'blue'}}>Hello React</h1>);
+        }
+    }
+    ReactDOM.render(<Hello/>, document.getElementById('myroot'));
+</script>
+
+
+</body>
+</html>
