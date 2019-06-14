@@ -2,7 +2,7 @@ import React from 'react';
 class Navbar extends React.Component{
     render(){
         return (
-<nav className="navbar navbar-expand-sm bg-light">
+<nav className="navbar navbar-expand-sm bg-light mb-5">
   <ul className="navbar-nav">
   <a className="navbar-brand" href="#">
     <img src="pig.PNG" alt="Logo" style={{width:40}}/>
