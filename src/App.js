@@ -6,15 +6,26 @@ import ReadContent from './components/ReadContent'
 import CreateContent from './components/CreateContent'
 import ListContent from './components/ListContent'
 class App extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+      memos:[{title:'To Do',msg:'오늘 할일이 많아요', wdate:'2019-06-01'},
+      {title:'In Progress',msg:'진행중인 일..많아요', wdate:'2019-06-01'}]
+    }
+  }
+  
+
   render(){
     return (
     <div className="container">      
-      <Header subject="MyMemo PostIng"></Header>
+      <Header subject="My Memo Posting"></Header>
       <Navbar></Navbar>
       <div className="row">
-        <CreateContent></CreateContent>
+        <CreateContent onSubmit={function(_title,_msg){
+            this.state.memos.push({title:_title,msg:_msg});
+          }}></CreateContent>
         <ReadContent title="Welcome to MyMemo" msg="오늘 할 일을 포스트하세요"></ReadContent>
-        <ListContent></ListContent>
+        <ListContent memos={this.state.memos}></ListContent>
       </div>
     </div>);
   }

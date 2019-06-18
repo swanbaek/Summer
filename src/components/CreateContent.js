@@ -1,5 +1,25 @@
 import React from 'react';
 class CreateContent extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleSubmit=this.handleSubmit.bind(this);
+
+        this.state={           
+            memos:[],
+            title:'',
+            msg:''        
+        }
+        
+    }
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.onSubmit(
+            e.target.title.value,
+            e.target.msg.value
+        );
+        console.log('CreateContent Submit')
+    }
+
     render(){
         return (
             <div className="col-md-3 col-sm-6">
@@ -8,7 +28,7 @@ class CreateContent extends React.Component{
                 <h3 className="text-center text-success">Add Memo</h3>
                 </div>
                 <div className="card-body text-center">
-                <form action="memoAdd.jsp" method="post">
+                <form action="memoAdd.jsp" method="post" onSubmit={(e)=>this.handleSubmit(e)}>
                     <input type="text"
                      name="title" placeholder="제  목" className="form-control"></input>
                      <p>
