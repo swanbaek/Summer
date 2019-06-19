@@ -12,12 +12,15 @@ class CreateContent extends React.Component{
         
     }
     handleSubmit(e){
+        console.log("handleSubmit()")
         e.preventDefault();
-        this.props.onSubmit(
+        this.props.onSubmit( //부모에 onSubmit()으로 전달
             e.target.title.value,
             e.target.msg.value
         );
         console.log('CreateContent Submit')
+        e.target.title.value="";
+        e.target.msg.value="";
     }
 
     render(){

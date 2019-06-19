@@ -1,5 +1,5 @@
 import React from 'react';
-class ReadContent extends React.Component{
+class IntroContent extends React.Component{
 
     constructor(props){
         super(props);
@@ -25,4 +25,4 @@ class ReadContent extends React.Component{
         );
     }
 }
-export default ReadContent;
+export default IntroContent;

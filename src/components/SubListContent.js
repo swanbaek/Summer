@@ -11,8 +11,15 @@ class SubListContent extends React.Component{
         return (
             
                 <li className="list-group-item d-flex justify-content-between align-items-center">                   
-                    {this.props.title}
-                    <span className="badge badge-danger badge-pill">2019-06-02</span>
+                    <a href="#" data-idx={this.props.idx} onClick={function(e){
+                        e.preventDefault();
+                        console.log('eeeee',e.target)
+                        let _idx=e.target.dataset.idx;
+                       //let _idx=1;
+                        this.props.onClick(_idx); 
+                        //부모(ListContent)의 onSelect()에 전달
+                    }.bind(this)}>{this.props.title}</a>
+                    <span className="badge badge-danger badge-pill">{this.props.wdate}</span>
                 </li>         
         );
     }
