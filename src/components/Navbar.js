@@ -7,20 +7,20 @@ class Navbar extends React.Component{
   <a className="navbar-brand" href="#">
     <img src="pig.PNG" alt="Logo" style={{width:40}}/>
   </a>
-    <li className="nav-item active">
+  <li className="nav-item active">
       <a className="nav-link" href="#">Home</a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href="#">Read</a>
+      <a className="nav-link" href="#">Memo</a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href="#">Create</a>
+      <a className="nav-link" href="#">Movie</a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href="#">Update</a>
+      <a className="nav-link" href="#">Board</a>
     </li>
     <li className="nav-item">
-      <a className="nav-link" href="#">Delete</a>
+      <a className="nav-link" href="#">Login</a>
     </li>
   </ul>
 

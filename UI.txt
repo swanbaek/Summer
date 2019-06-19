@@ -1,0 +1,110 @@
+---App.js-------------------------
+ <div className="container">      
+      
+      <div className="row">
+      </div>
+</div>
+---Header.js-------------------------
+<div className="jumbotron mt-3">
+      <h1 className="text-primary text-center">MyReactApp</h1>
+</div>
+---Navbar.js---------------------------
+<nav className="navbar navbar-expand-sm bg-light mb-5">
+  <ul className="navbar-nav">
+  <a className="navbar-brand" href="#">
+    <img src="pig.PNG" alt="Logo" />
+  </a>
+    <li className="nav-item active">
+      <a className="nav-link" href="#">Home</a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="#">Memo</a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="#">Movie</a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="#">Board</a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="#">Login</a>
+    </li>
+  </ul>
+
+</nav>
+--IntroContent.js------------------------
+<div className="col-md-3 col-sm-6">
+       <div className="card">
+           <img src="images/img02.png" className="card-img-top img img-thumbnail"/>
+           <div className="card-body text-center">
+                 <h3 className="card-title">제목</h3>
+                  <p className="card-text">메모내용</p>                    
+                  <a href="#" className="btn btn-outline-danger">Show Info</a>
+           </div>
+      </div>                
+</div>
+---CreateContent.js-------------------------------
+<div className="col-md-3 col-sm-6">
+                <div className="card" style={{height: 350}}>
+                <div className="card-header text-center">
+                <h3 className="text-center text-success">Add Memo</h3>
+                </div>
+                <div className="card-body text-center">
+                <form action="memoAdd.jsp" method="post">
+                    <input type="text"
+                     name="title" placeholder="제  목" className="form-control"></input>
+                     <p>
+                    <textarea name="msg" placeholder="메모 내용" className="form-control"></textarea>
+                    </p>
+                    <button className="btn btn-outline-success">글쓰기</button>
+                </form> 
+                </div>
+                
+                </div> 
+</div>
+--ListContent.js--------------------------------
+<div className="col-md-3 col-sm-6">
+    <div className="card">
+        <ul className="list-group">
+            <li className="list-group-item active d-flex justify-content-between align-items-center">
+                Memo List
+                    <span className="badge badge-danger badge-pill">2019-06-01</span>
+            </li>                
+            {/*여기에 하위 목록(SubListContent) 들어갈 예정*/}
+        </ul>
+    </div>                
+</div>
+--SubListContent.js-----------------------------
+<li className="list-group-item d-flex justify-content-between align-items-center">                   
+    <a href="#">제목</a>
+    <span className="badge badge-danger badge-pill">날짜</span>
+</li> 
+---ViewContent.js-------------------------------
+<div className="col-md-3 col-sm-6">
+      <div className="card">
+          <img src="images/memo01.PNG"  className="card-img-top img img-thumbnail"/>
+          <div className="card-img-overlay text-center">
+               <h3 className="card-title mt-5  text-primary">제목</h3>
+               <p className="card-text text-success font-weight-bold">
+		   <pre className="pre-scrollable">메모내용</pre>
+               </p> 
+               <span class="text-secondary font-weight-bold">작성일</span>  
+               <p></p>              
+               <a href="#" className="btn btn-warning btn-sm mr-1">
+               EDIT</a>
+               <a href="#" className="btn btn-danger btn-sm">
+               DEL</a>    
+               </div>
+      </div>                
+</div>
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+
+----------------------------------
+
