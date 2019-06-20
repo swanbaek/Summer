@@ -17,7 +17,8 @@ class ListContent extends React.Component{
             let _wdate=this.props.memos[i].wdate;
         _str.push(<SubListContent key={i} idx={_idx} title={_title}
              msg={_msg} wdate={_wdate}
-             onClick={function(_idx){   
+             onClick={function(_idx){
+                 this.setState({selected_idx:_idx});
                  this.props.onClick(_idx)
              }.bind(this)} ></SubListContent>)
         }
