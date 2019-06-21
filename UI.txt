@@ -97,7 +97,31 @@
                </div>
       </div>                
 </div>
-----------------------------------
+----EditContent.js------------------------------
+<div className="col-md-3 col-sm-6" >
+      <div className="card" style={{height: 250}}>
+                
+             <img src="images/memo02.PNG" 
+                    className="card-img-top img img-thumbnail" />
+              <div className="card-img-overlay text-center">
+                <form action="memoEdit.jsp" method="post"
+                 onSubmit={(e)=>this.handleSubmit(e)} className="mt-2">
+                    <input type="hidden" name="idx"></input>
+                     <input type="text" 
+                     name="title" placeholder="제  목"
+                      className="form-control"></input>                    
+                     <p>
+                    <textarea name="msg" placeholder="메모 내용" 
+                    className="form-control mt-2"></textarea>
+                    </p>
+                    <span className="badge badge-success">
+                        작성일: 
+                    </span><p></p>
+                    <button className="btn btn-outline-info">글수정</button>
+                </form> 
+            </div>                
+      </div> 
+</div>
 ----------------------------------
 ----------------------------------
 ----------------------------------
