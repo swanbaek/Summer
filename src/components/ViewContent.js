@@ -21,11 +21,13 @@ class ViewContent extends React.Component{
                         <p></p>              
                         <a href="#" onClick={function(e){
                             //console.log('onClick');
-                            this.props.onClick(this.props.idx);
+                            this.props.onEditForm(this.props.idx,'edit');
                             e.preventDefault();
                         }.bind(this)} className="btn btn-warning btn-sm mr-1">
                             EDIT</a>
-                        <a href="#" className="btn btn-danger btn-sm">
+                        <a href="#" onClick={function(e){
+                            this.props.onDelete(this.props.idx,'delete')
+                        }.bind(this)} className="btn btn-danger btn-sm">
                           DEL</a>    
                     </div>
                 </div>                

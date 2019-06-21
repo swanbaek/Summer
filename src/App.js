@@ -18,6 +18,27 @@ class App extends Component{
       {idx:2,title:'In Progress',msg:'진행중인 일..많아요', wdate:'2019-6-01'}]
     }
     this.editHandler=this.editHandler.bind(this)
+    this.deleteHandler=this.deleteHandler.bind(this);
+  }
+  deleteHandler(_idx){
+    if(this.state.memos.length<=0){
+         alert('삭제할 글이 없어요');
+         return;
+    }
+    let yn=window.confirm('정말 삭제할까요?'+_idx);
+    if(yn){
+      var _memos=this.state.memos;
+      var arr=Array.from(_memos);
+      for(var i=0;i<arr.length;i++){
+        if(arr[i].idx==_idx){
+          arr.splice(i,1);
+          break;
+        }
+      }//for-----
+      
+      this.setState({mode:'view',selected_idx:arr.length,memos:arr});
+      
+    }
   }
   editHandler(_idx,_title,_msg){
     //alert(_title)
@@ -34,7 +55,7 @@ class App extends Component{
           break;
         }//if
       }//for-----
-      this.setState({memos:_arr,mode:'view'});
+      this.setState({memos:_arr,mode:'view',selected_idx:_idx});
     }
   
 
@@ -44,15 +65,29 @@ class App extends Component{
     var _mode=this.state.mode;
     switch(_mode){
       case 'view':
-        _content=<ViewContent idx={this.state.memos[i].idx} title={this.state.memos[i].title} msg={this.state.memos[i].msg}
-        wdate={this.state.memos[i].wdate}  onClick={function(idx){
-          console.log('idx==='+idx)
-          this.setState({mode:'edit',selected_idx:idx})
-        }.bind(this)}></ViewContent>;
+        var memo=null;
+        if(this.state.memos.length>0){
+         memo=this.state.memos[i];
+        }else{
+          memo={idx:0,title:'',msg:'',wdate:''}
+        }
+        _content=<ViewContent idx={memo.idx} title={memo.title} msg={memo.msg}
+        wdate={memo.wdate}  onEditForm={function(idx, vmode){
+          if(!idx){
+            alert('수정할 글이 없어요');
+            return;
+          }
+          console.log('idx==='+idx+", vmode=-==="+vmode)
+          this.setState({mode:vmode,selected_idx:idx})
+        }.bind(this)} 
+       
+        onDelete={this.deleteHandler}></ViewContent>;
         break;
       case 'edit':
           _content=<EditContent idx={this.state.memos[i].idx} title={this.state.memos[i].title} msg={this.state.memos[i].msg}
           wdate={this.state.memos[i].wdate} onSubmit={this.editHandler} ></EditContent>;
+        break;  
+      case 'delete':
         break;  
     }
 
